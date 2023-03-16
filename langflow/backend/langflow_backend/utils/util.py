@@ -295,7 +295,9 @@ def format_dict(d, name: Optional[str] = None):
             value.pop("default")
 
         # Add options to openai
-        if name == "OpenAIChat" and key == "model_name":
+        if name == "OpenAI" and key == "model_name":
+            value["options"] = ["text-davinci-003", "text-davinci-002"]
+        elif name == "OpenAIChat" and key == "model_name":
             value["options"] = ["gpt-3.5-turbo", "gpt-4"]
 
     return d
